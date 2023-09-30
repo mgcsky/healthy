@@ -39,7 +39,7 @@ class ListTransformer extends TransformerAbstract
             "description" => $recommend->description,
             "image_url" => $recommend->image_url,
             "datetime" => $recommend->datetime,
-            "tag" => explode(",", $recommend->tag),
+            "tag" => json_decode($recommend->tag),
         ];
         
     }

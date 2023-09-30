@@ -7,11 +7,26 @@ use Illuminate\Support\Facades\Hash;
 
 class UserRepository
 {
+    /**
+     * get user by email
+     * 
+     * @return User
+     * 
+     */
+
     public function getUserByEmail($email)
     {
         return User::where("email", $email)->first();
     }
 
+    /**
+     * insert one record of User
+     * 
+     * @param array $data
+     * 
+     * @return User
+     * 
+     */
     public function insert($data)
     {
         return User::firstOrCreate([

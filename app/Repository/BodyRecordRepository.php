@@ -7,6 +7,14 @@ use App\Models\BodyRecord;
 
 class BodyRecordRepository
 {
+
+    /**
+     * get Body record of logged in user by day
+     * 
+     * @return list of BodyRecord
+     * 
+     */
+
     public function getByDay()
     {
         $user = auth()->user();
@@ -15,6 +23,13 @@ class BodyRecordRepository
         ->where("user_id", "=", $user->id)
         ->get();
     }
+
+    /**
+     * get Body record of logged in user by week
+     * 
+     * @return list of BodyRecord
+     * 
+     */
 
     public function getByWeek()
     {
@@ -25,6 +40,13 @@ class BodyRecordRepository
         ->get();
     }
 
+    /**
+     * get Body record of logged in user by month
+     * 
+     * @return list of BodyRecord
+     * 
+     */
+
     public function getByMonth()
     {
         $user = auth()->user();
@@ -33,6 +55,13 @@ class BodyRecordRepository
         ->where("user_id", "=", $user->id)
         ->get();
     }
+
+    /**
+     * get Body record of logged in user by year
+     * 
+     * @return list of BodyRecord
+     * 
+     */
 
     public function getByYear()
     {
@@ -44,6 +73,14 @@ class BodyRecordRepository
         ->groupByRaw("month(date), year(date)")
         ->get();
     }
+
+    /**
+     * set of update Body record of logged in user by date
+     * 
+     * @param int $data
+     * @return void
+     * 
+     */
 
     public function updateOrInsert($data)
     {

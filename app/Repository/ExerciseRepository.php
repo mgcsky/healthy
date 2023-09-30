@@ -8,6 +8,12 @@ use App\Models\Exercise;
 class ExerciseRepository
 {
 
+    /**
+     * get Exercises by date and logged in user
+     * 
+     * @return list of Exercise
+     * 
+     */
     public function getByDate($date)
     {
         $user = auth()->user();
@@ -16,6 +22,13 @@ class ExerciseRepository
             ->get();
     }
 
+    /**
+     * insert Exercise records belong to logged in user
+     * 
+     * @param array $data
+     * @return void
+     * 
+     */
     public function insert($data)
     {
         $user = auth()->user();
@@ -29,6 +42,12 @@ class ExerciseRepository
         ]);
     }
     
+    /**
+     * Count Exercises by date and logged in user
+     * 
+     * @return int
+     * 
+     */
     public function totalExerciseByDate($date)
     {
         $user = auth()->user();

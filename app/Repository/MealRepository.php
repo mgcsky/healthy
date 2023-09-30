@@ -6,6 +6,18 @@ use App\Models\MealRecord;
 
 class MealRepository
 {
+
+    /**
+     * get Meal records
+     * 
+     * @param int $page - number of page, default by 0
+     * @param int $perPage - number of records per page, default by 8
+     * @param int $typeId - meal type id
+     * 
+     * @return list of Meal
+     * 
+     */
+
     public function get($page, $perPage, $typeId)
     {
         $page = $page ?? 0;
@@ -24,6 +36,14 @@ class MealRepository
         return $query->get();
     }
 
+    /**
+     * insert one record of Meal
+     * 
+     * @param array $data
+     * 
+     * @return boolean
+     */
+
     public function insert($data)
     {
         $user = auth()->user();
@@ -35,6 +55,15 @@ class MealRepository
             'description' => data_get($data, "description")
         ]);
     }
+
+    /**
+     * insert one record of Meal
+     * 
+     * @param int $mealTypeId
+     * @param date $date
+     * 
+     * @return int
+     */
 
     public function checkUnique($mealTypeId, $date)
     {

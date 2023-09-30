@@ -8,6 +8,18 @@ use App\Models\Tag;
 
 class RecommendRepository
 {
+    /**
+     * get Recommend records
+     * 
+     * @param int $page - number of page, default by 0
+     * @param int $perPage - number of records per page, default by 8
+     * @param int $typeId - recommend type id
+     * @param int $tagId - hashtag id
+     * 
+     * @return list of Recommend
+     * 
+     */
+
     public function get($page, $perPage, $typeId, $tagId)
     {
         $page = $page ?? 0;
@@ -28,6 +40,14 @@ class RecommendRepository
         ->get();
     }
 
+    /**
+     * insert one record of Recommend
+     * 
+     * @param array $data
+     * 
+     * @return void
+     */
+
     public function insert($data)
     {
     
@@ -46,10 +66,14 @@ class RecommendRepository
                     "recommend_id" => $recommendId,
                     "tag_id" => $tagId
                 ]);
-                array_push($tagNames, Tag::find($tagId)->name);
+                $tag = Tag::find($tagId);
+                array_push($tagNames, [
+                    'id' => $tag->id,
+                    'name' => $tag->name
+                ]);
             }
             Recommend::where('id', '=', $recommendId)->update([
-                'tag' => implode(",", $tagNames)
+                'tag' => json_encode($tagNames)
             ]);
         }
         

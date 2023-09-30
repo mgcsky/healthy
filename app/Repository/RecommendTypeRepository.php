@@ -6,10 +6,25 @@ use App\Models\RecommendType;
 
 class RecommendTypeRepository
 {
+    /**
+     * get all records of recommend type
+     * 
+     * @return list of recommend type
+     * 
+     */
+
     public function getAll()
     {
         return RecommendType::get();
     }
+
+    /**
+     * insert one record of recommend type
+     * 
+     * @param array $data
+     * 
+     * @return boolean
+     */
 
     public function insert($data)
     {
