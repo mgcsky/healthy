@@ -4,8 +4,13 @@ Healthy is built to provide API for healthy demo project.
 ## Table of Contents
 
 - [Setting up](#setting-up)
+- [Diagram](#diagram)
 - [The Flow](#the-flow)
 - [What should be done if I have more time](#what-should-be-done-if-i-have-more-time)
+
+## Diagram
+
+https://lucid.app/lucidchart/6d7485ff-b3d2-45a7-b8f3-9d389514d8f9/edit?viewport_loc=-1543%2C-909%2C2296%2C1128%2C0_0&invitationId=inv_08c7cd3e-445c-4196-bbce-a90f3c3ba75a
 
 ## Setting up
 
