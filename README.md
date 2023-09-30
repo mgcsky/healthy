@@ -5,6 +5,7 @@ Healthy is built to provide API for healthy demo project.
 
 - [Setting up](#setting-up)
 - [The Flow](#the-flow)
+- [What should be done if I have more time](#what-should-be-done-if-i-have-more-time)
 
 ## Setting up
 
