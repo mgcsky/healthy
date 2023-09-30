@@ -45,3 +45,15 @@ And the setup is done!
 The ideal here is to group actions that required query into one place for easier debug, handling and reuse in future.
 
 So the API should be register in route api.php as normal, the controller now only working as a dealer so it can focus on calling which function is needed. The main data query is now moving to repository and it's functions. We handle validation in app\Http\Request and standardize data response by transformer before return.
+
+## What should be done if I have more time
+
+I think about implement DTO (data transfer object) and full version of repository pattern
+
+1. For the DTO I think about the below package
+```
+https://spatie.be/docs/laravel-data/v3/introduction
+```
+If it can be implement then the input of repository should be clean and clear and no doubt anyone can read and know which attribute is needed, so no need to go and check line by line to gather info
+
+2. Repository pattern and can be more flexible and clear by adding interface per repository and implement it. We can also add a binding in AppServiceProvider so that we can call interface to represent it's repository in controller. By that way when we lever up the repository (like to v2) then only re-binding on AppServiceProvider is needed instead of search and replace everywhere it's used.
